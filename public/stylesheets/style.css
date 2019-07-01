@@ -60,6 +60,7 @@ a {
   visibility: hidden;
   z-index: -1111; }
 
+/*        RESPONSIVE NAV BAR            */
 @media all and (max-width: 800px) {
   .show-menu-btn, .hide-menu-btn {
     display: block; }
@@ -84,6 +85,7 @@ a {
   #chk:checked ~ .menu {
     right: 0; } }
 
+/*        /RESPONSIVE NAV BAR            */
 .nav-item {
   position: relative;
   text-transform: uppercase;
@@ -115,18 +117,32 @@ a {
 
 /*                      /NAVIGATION                          */
 /*                       INTRO                          */
-#intro {
-  height: 400px; }
-
 .large-image {
   width: 100%;
-  height: 100%;
-  background-image: url(/petting-cat.jpg);
+  height: 550px;
+  background-image: url(/images/petting-cat.jpg);
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white; }
+
+#intro-buttons {
+  display: flex;
+  flex-direction: row; }
 
 /*                      /INTRO                          */
 /*                        FOOTER                          */
+footer {
+  height: 100%;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  background-color: ivory;
+  color: #F37272; }
+
 /*                       /FOOTER                          */
 
 /*# sourceMappingURL=style.css.map */
