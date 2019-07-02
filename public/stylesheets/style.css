@@ -26,6 +26,9 @@ button:focus {
 button:hover {
   cursor: pointer; }
 
+.hidden {
+  display: none; }
+
 .link-red {
   color: #f38181; }
 
