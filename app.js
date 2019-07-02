@@ -8,10 +8,13 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const bcrypt     = require("bcrypt");
+const saltRounds = 10;
 
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
+
 
 const flatpickr = require("flatpickr");
 

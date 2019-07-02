@@ -4,13 +4,14 @@ const Schema = mongoose.Schema;
 const hostSchema = new Schema(
   {
     user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    zipCode: { type: Number, required: true },
+    street: { type: String},
+    city: { type: String},
+    zipCode: { type: Number },
     homeType: { type: String, required: true, enum:['house','flat'] },
-    hasGarden: { type: Boolean, required: true },
+    hasGarden: { type: String, enum:['yes','no'], required: true },
     howManyAnimals: { type: Number, required: true },
-    priceDay: { type: Number, max: 50, required: true },
+    hasAnimals: { type: String, enum:['yes','no'], required: true },
+    priceDay: { type: Number, max: 50 },
     rate: { type: Number, min: 0, max: 5 }
   },
   {
@@ -22,7 +23,7 @@ const hostSchema = new Schema(
 );
 
 const Host = mongoose.model('Host', hostSchema);
-module.exports = User;
+module.exports = Host;
 
 /* Host.create({
   user_id: '5d19fbd16d2f2d0eb8690a35',
