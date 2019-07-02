@@ -1,24 +1,116 @@
-<h2>Signup</h2>
+<div class="login">
+  <h2>Create an account on CatBnb</h2>
+  <form action="/auth/signup" method="POST" id="form-container">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+    <div class="form-element">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" placeholder="Jon">
+    </div>
 
-  <br><br>
+    <br>
+    
+    <div class="form-element">
+      <label for="lastname">Lastname</label>
+      <input id="lastname" type="text" name="lastname" placeholder="Snow">
+    </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+    <br>
 
-  <br><br>
+    <div class="form-element">
+      <label for="email">Email</label>
+      <input id="email" type="mail" name="email" placeholder="jon@snow.com">
+    </div>
 
-  <button>Create account</button>
+    <br>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+    <div class="form-element">
+      <label for="phone">Phone</label>
+      <input id="phone" type="text" name="phone" placeholder="0101010101">
+    </div>
+
+    <br>
+
+    <div class="form-element">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+    </div>
+    <br>
+
+    <p>Do wou want to become a cat sitter?</p>
+    <div>
+    <input type="radio" id="catsitter-yes" name="catsitter" value="yes">
+    <label for="huey">Yes</label>
+    </div>
+    <div>
+      <input type="radio" id="catsitter-yes" name="catsitter" value="no">
+      <label for="dewey">No</label>
+    </div>
+    <hr>
+
+    <div class="form-element-large">
+    <label for="howmany">How many cats can you host?</label>
+    <input id="howmany" type="number" name="howmany" placeholder="2" min="1" max="4" step="1"></div>
+    <br>
+    <hr>
+
+{{!--     <div class="form-element-large">
+    <label for="home">What is the type of your home?</label>
+      <select id="home-select">
+          <option value="dog" name="house">House</option>
+          <option value="cat" name="flat">Flat</option>
+      </select>
+    <br><br>
+    <hr> --}}
+
+    <p>What is the type of your home?</p>
+    <div>
+    <input type="radio" id="home-house" name="home" value="house">
+    <label for="huey">House</label>
+    </div>
+    <div>
+      <input type="radio" id="home-flat" name="home" value="flat">
+      <label for="flat">Flat</label>
+    </div>
+    <br>
+    <hr>
+
+    <p>Do you have a garden?</p>
+    <div>
+    <input type="radio" id="garden-yes" name="garden-yes" value="yes">
+    <label for="garden-yes">Yes</label>
+    </div>
+    <div>
+      <input type="radio" id="garden-no" name="garden-no" value="no">
+      <label for="garden-no">No</label>
+    </div>
+    <br>
+    <hr>
+
+    <p>Do you have any animals? (other than cat sitting)</p>
+    <div>
+    <input type="radio" id="animals-yes" name="animals" value="yes">
+    <label for="yes">Yes</label>
+    </div>
+    <div>
+      <input type="radio" id="animals-no" name="animals" value="no">
+      <label for="no">No</label>
+    </div>
+    <br>
+    <hr>
+
+  
+
+    {{#if message }}
+      <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <br><br>
+
+    <button>Create account</button>
+
+    <p class="account-message">
+      You already have an account?
+      <a href="/login" class="link-red">Login <i class="fas fa-paw"></i></a> 
+    </p>
+  </form>
+</div>

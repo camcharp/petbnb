@@ -6,14 +6,20 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-<<<<<<< HEAD
+router.get("/signup", (req, res, next) => {
+  res.render("auth/signup");
+});
+
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", { "message": req.flash("error") });
+});
+
 router.get("/services", (req, res) => {
-  console.log(req);
   res.render("services/services");
-=======
-router.get('/services', (req, res) => {
-  res.render('services/services');
->>>>>>> 6080a8ccc80c861eafdff722d6188dfdaa127f27
+});
+
+router.get("/about", (req, res) => {
+  res.render("services/about");
 });
 
 module.exports = router;

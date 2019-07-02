@@ -12,7 +12,8 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+
+const flatpickr = require("flatpickr");
 
 mongoose
   .connect('mongodb://localhost/petbn', {useNewUrlParser: true})
@@ -63,7 +64,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'PetBnb';
+app.locals.title = 'CatBnb';
 
 
 // Enable authentication using session + passport
