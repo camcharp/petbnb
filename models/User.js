@@ -16,6 +16,6 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 module.exports = User;
 
-/* User.create({ name: 'Blabla', lastname: 'Lalala', email: 'blabla@lala.com', password: 'password', })
+/*  User.create({ name: 'Blabla', lastname: 'Lalala', email: 'blabla@lala.com', password: 'password', })
   .then(user => { console.log('The user is saved and its value is: ', user) })
-  .catch(err => { console.log('An error happened:', err) }); */
+  .catch(err => { console.log('An error happened:', err) });  */

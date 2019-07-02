@@ -7,11 +7,13 @@
     <label for="email">Email:</label>
     <input id="email" type="text" name="email" value="jon@snow.com" placeholder="jon@snow.com">
   </div>
-  <br><br>
+  <br>
   <div class="form-element">
     <label for="password">Password:</label>
     <input id="password" type="password" name="password" value="12345" placeholder="Your password">
   <br></div>
+
+
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -21,7 +23,8 @@
   <button>Login</button>
 
   <p class="account-message">Don't have an account yet?</p>
-  <a href="/auth/signup" class="link-red"> Signup <i class="fas fa-paw"></i></a> 
+  <a href="/signup" class="link-red"> Signup <i class="fas fa-paw"></i></a>
   </form>
+  <br><br>
 
 </div>

@@ -52,6 +52,11 @@ button:hover {
   width: 100px;
 }
 
+.form-element-large label {
+  display: inline-block;
+  width: 250px;
+}
+
 
 /*                         /GLOBAL                          */
 
@@ -207,7 +212,7 @@ button:hover {
     flex-direction: column;
     align-items: flex-start;
     color: white;
-    padding: 2% 0 0 5%;
+    padding: 5% 0 0 5%;
 }
 
 #intro-buttons {
@@ -224,8 +229,8 @@ button:hover {
   height: auto;
   font-family: "Montserrat",sans-serif;
   border-radius: 6%;
-  padding: 6%;
-  margin: 8% 15%;
+  padding: 4.5%;
+  margin: 8% 25% 4% 30%;
 }
 
 #threeitems {
@@ -261,7 +266,7 @@ button:hover {
   margin: 0.5% auto;
   align-items: center;
   background-color: ivory;
-  padding: 4% 0;
+  padding-top: 3%;
 }
 
 .login h2 {
@@ -280,6 +285,13 @@ button:hover {
   margin: 2% 5%;
 }
 /*                      /LOGIN                          */
+
+/*                        SIGN UP                          */
+.petsitter {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+/*                       /SIGN UP                          */
 
 
 /*                        FOOTER                          */
