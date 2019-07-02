@@ -1,24 +1,53 @@
-<h2>Signup</h2>
+<div class="login">
+  <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <form action="/auth/signup" method="POST" id="form-container">
 
-  <br><br>
+    <div class="form-element">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" placeholder="Jon">
+    </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+    <br><br>
+    
+    <div class="form-element">
+      <label for="lastname">Lastname</label>
+      <input id="lastname" type="text" name="lastname" placeholder="Snow">
+    </div>
 
-  <br><br>
+    <br><br>
 
-  <button>Create account</button>
+    <div class="form-element">
+      <label for="email">Email</label>
+      <input id="email" type="mail" name="email" placeholder="jon@snow.com">
+    </div>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+    <br><br>
+
+    <div class="form-element">
+      <label for="phone">Phone</label>
+      <input id="phone" type="text" name="phone" placeholder="0101010101">
+    </div>
+
+    <br><br>
+
+    <div class="form-element">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+    </div>
+    <br>
+
+    {{#if message }}
+      <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <br><br>
+
+    <button>Create account</button>
+
+    <p class="account-message">
+      Do you already have an account?
+      <a href="/auth/login" class="link-red">Login <i class="fas fa-paw"></i></a> 
+    </p>
+  </form>
+</div>

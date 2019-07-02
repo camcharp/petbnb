@@ -1,15 +1,17 @@
+<div class="login">
 
-<h2>Login</h2>
+  <h2>Login to you CatBnb account</h2>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-
+  <form action="/auth/login" method="POST" id="form-container">
+  <div class="form-element">
+    <label for="email">Email:</label>
+    <input id="email" type="text" name="email" value="jon@snow.com" placeholder="jon@snow.com">
+  </div>
   <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  <div class="form-element">
+    <label for="password">Password:</label>
+    <input id="password" type="password" name="password" value="12345" placeholder="Your password">
+  <br></div>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -18,8 +20,8 @@
 
   <button>Login</button>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+  <p class="account-message">Don't have an account yet?</p>
+  <a href="/auth/signup" class="link-red"> Signup <i class="fas fa-paw"></i></a> 
+  </form>
+
+</div>

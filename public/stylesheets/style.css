@@ -1,5 +1,9 @@
 /*                        GLOBAL                         */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300&display=swap");
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
 body {
   box-sizing: border-box;
   font-family: "Montserrat",sans-serif;
@@ -13,29 +17,51 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
+  color: white; }
+
+button:focus {
+  outline: 0; }
+
+button:hover {
   cursor: pointer; }
+
+.link-red {
+  color: #f38181; }
+
+.form-element label {
+  display: inline-block;
+  width: 100px; }
 
 /*                         /GLOBAL                          */
 /*                       NAVIGATION                          */
 .header {
-  height: 100px;
+  height: 70px;
   background: ivory;
-  padding: 0 20px;
+  padding: 0;
+  margin: 0;
   color: #f38181; }
 
 .logo {
-  line-height: 100px;
+  line-height: 70px;
   float: left;
+  padding-left: 3%;
   text-transform: uppercase; }
+
+.logo a {
+  color: #f38181; }
 
 .menu {
   float: right;
-  line-height: 100px; }
+  line-height: 70px;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0; }
 
 .menu a {
   color: #f38181;
   text-transform: uppercase;
-  padding: 0 20px;
+  padding: 0 30px;
   transition: 0.4s; }
 
 .show-menu-btn, .hide-menu-btn {
@@ -77,7 +103,8 @@ a {
     transition: 0.7s; }
   .menu a {
     display: block;
-    padding: 20px; }
+    padding-bottom: 20px;
+    cursor: pointer; }
   .hide-menu-btn {
     position: absolute;
     top: 40px;
@@ -98,7 +125,7 @@ a {
     left: 0;
     right: 0;
     height: 2px;
-    background-color: #F37272; }
+    background-color: #f38181; }
   .nav-item:before {
     opacity: 0;
     transform: translateY(-0.8px);
@@ -118,30 +145,88 @@ a {
 /*                      /NAVIGATION                          */
 /*                       INTRO                          */
 .large-image {
-  width: 100%;
-  height: 550px;
-  background-image: url(/images/petting-cat.jpg);
+  width: 95%;
+  height: auto;
+  background-image: url(/images/happycat.jpg);
   background-repeat: no-repeat;
+  background-position: top;
+  min-height: 600px;
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: white; }
+  color: white;
+  padding: 2% 0 0 5%; }
 
 #intro-buttons {
   display: flex;
-  flex-direction: row; }
+  flex-direction: column;
+  justify-content: space-around; }
+
+#intro-buttons button {
+  color: white;
+  background-color: #f38181;
+  font-size: 1.2rem;
+  width: 220px;
+  height: auto;
+  font-family: "Montserrat",sans-serif;
+  border-radius: 6%;
+  padding: 6%;
+  margin: 8% 15%; }
+
+#threeitems {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 2%; }
+
+.item {
+  padding: 0 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem; }
+
+.item .fas {
+  font-size: 3rem; }
 
 /*                      /INTRO                          */
+/*                       LOGIN                          */
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 0.5% auto;
+  align-items: center;
+  background-color: ivory;
+  padding: 4% 0; }
+
+.login h2 {
+  margin-bottom: 5%; }
+
+.login button {
+  color: white;
+  background-color: #f38181;
+  font-size: 1.2rem;
+  width: 220px;
+  height: auto;
+  font-family: "Montserrat",sans-serif;
+  border-radius: 6%;
+  padding: 6%;
+  margin: 2% 5%; }
+
+/*                      /LOGIN                          */
 /*                        FOOTER                          */
 footer {
   height: 100%;
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
   padding: 0;
   margin: 0;
   background-color: ivory;
-  color: #F37272; }
+  color: #f38181; }
 
 /*                       /FOOTER                          */
 
