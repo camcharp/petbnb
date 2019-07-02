@@ -11,6 +11,7 @@ const catSchema = new Schema(
       enum: ['calm', 'lazy', 'cuddly', 'loner', 'playful', 'big eater', 'grumpy', 'evil']
     },
     image: {type: String},
+    rate: {type: Number, min: 0, max: 5},
   },
   {
     timestamps: {

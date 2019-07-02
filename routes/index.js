@@ -22,4 +22,16 @@ router.get("/about", (req, res) => {
   res.render("services/about");
 });
 
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard/my_profile");
+});
+
+router.get("/bookings", (req, res) => {
+  res.render("dashboard/my_bookings");
+});
+
+router.get("/cats", (req, res) => {
+  res.render("dashboard/my_animals");
+});
+
 module.exports = router;

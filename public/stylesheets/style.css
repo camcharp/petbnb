@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   box-sizing: border-box;
   font-family: "Montserrat",sans-serif;
-  background-color: #f38181;
+  background-color: ivory;
   padding: 0;
   margin: 0;
   width: 100%; }
@@ -39,6 +39,14 @@ button:hover {
 .form-element-large label {
   display: inline-block;
   width: 250px; }
+
+.section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2% 0;
+  background-color: #f38181;
+  color: white; }
 
 /*                         /GLOBAL                          */
 /*                       NAVIGATION                          */
@@ -221,8 +229,8 @@ button:hover {
   height: auto;
   font-family: "Montserrat",sans-serif;
   border-radius: 6%;
-  padding: 6%;
-  margin: 2% 5%; }
+  padding: 1.2%;
+  margin: 1% 5%; }
 
 /*                      /LOGIN                          */
 /*                        SIGN UP                          */
@@ -231,6 +239,52 @@ button:hover {
   font-weight: bold; }
 
 /*                       /SIGN UP                          */
+/*                        DASHBOARD                         */
+.title-centered {
+  font-weight: bolder; }
+
+#profile {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5% 0 10%; }
+
+.nav-dahsboard {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-start;
+  width: 350px;
+  padding: 0 0 200px 0; }
+
+.nav-dahsboard ul {
+  padding: 0; }
+
+.nav-dahsboard li {
+  padding: 5% 0; }
+
+.nav-dahsboard img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; }
+
+.infos {
+  width: 600px; }
+
+.nav-dahsboard a {
+  color: #f38181; }
+
+.validate {
+  color: white;
+  background-color: #f38181;
+  font-size: 1rem;
+  width: 220px;
+  height: auto;
+  font-family: "Montserrat",sans-serif;
+  border-radius: 6%; }
+
+/*                       /DASHBOARD                         */
 /*                        FOOTER                          */
 footer {
   height: 100%;
