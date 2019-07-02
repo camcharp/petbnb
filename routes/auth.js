@@ -47,14 +47,14 @@ router.post('/signup', (req, res, next) => {
 			const hasGarden = req.body.hasGarden;
 			const howManyAnimals = req.body.howManyAnimals;
 			const hasAnimals = req.body.hasAnimals;
-			//if (document.getElementById('catsitter-yes').checked == true) {
+			if (document.getElementById('catsitter-yes').checked == true) {
 				Host.create({
 					user_id: user._id,
 					homeType,
 					hasGarden,
 					howManyAnimals,
 					hasAnimals
-				});
+				})};
 			console.log(req.body);
 			res.redirect('/dashboard');
 		})

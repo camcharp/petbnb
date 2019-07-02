@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   box-sizing: border-box;
   font-family: "Montserrat",sans-serif;
-  background-color: ivory;
+  background-color: white;
   padding: 0;
   margin: 0;
   width: 100%; }
@@ -52,7 +52,7 @@ button:hover {
 /*                       NAVIGATION                          */
 .header {
   height: 70px;
-  background: ivory;
+  background: white;
   padding: 0;
   margin: 0;
   color: #f38181; }
@@ -109,7 +109,7 @@ button:hover {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: ivory;
+    background: white;
     right: -100%;
     top: 0;
     text-align: center;
@@ -215,7 +215,7 @@ button:hover {
   height: auto;
   margin: 0.5% auto;
   align-items: center;
-  background-color: ivory;
+  background-color: white;
   padding-top: 3%; }
 
 .login h2 {
@@ -285,6 +285,49 @@ button:hover {
   border-radius: 6%; }
 
 /*                       /DASHBOARD                         */
+/*                         SERVICES                          */
+.col-xs-12 {
+  padding-left: 20%;
+  padding-right: 20%; }
+
+.text-center {
+  display: flex;
+  justify-content: center; }
+
+.pricing-card {
+  background-color: #f38181;
+  padding: 3rem 3rem;
+  margin: 1.5rem;
+  width: 150px;
+  height: 150px;
+  text-align: center; }
+
+.pricing-features li {
+  margin-bottom: 20px; }
+
+.row {
+  display: flex;
+  flex-direction: row; }
+
+.pricing-card {
+  display: flex;
+  flex-direction: column; }
+
+.services-image {
+  background-image: url(/images/sleeping_cat.jpg);
+  width: 95%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 600px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  padding: 5% 0 0 5%; }
+
+/*                        /SERVICES                          */
 /*                        FOOTER                          */
 footer {
   height: 100%;
@@ -292,7 +335,7 @@ footer {
   text-align: left;
   padding: 0;
   margin: 0;
-  background-color: ivory;
+  background-color: white;
   color: #f38181; }
 
 /*                       /FOOTER                          */
