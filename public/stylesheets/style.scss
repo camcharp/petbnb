@@ -80,6 +80,29 @@ button:hover {
 
 /*                         /GLOBAL                          */
 
+/*                          MANAGE                          */
+.manage-table, th, td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin-bottom: 10%;
+}
+
+th, td {
+  padding: 2%;
+}
+
+.manage-table {
+  text-align: center;
+  width: 600px;
+}
+
+.table-division img {
+  width: 100px;
+  height: auto;
+}
+
+/*                         /MANAGE                          */
+
 /*                       NAVIGATION                          */
 
 .header{

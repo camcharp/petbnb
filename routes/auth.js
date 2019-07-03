@@ -3,7 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require('../models/User');
 const Host = require('../models/Host');
-const uploader = require("./../config/cloudinary");
+const uploader = require('./../config/cloudinary');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt');
@@ -19,38 +19,30 @@ router.post(
 	})
 );
 
-router.post('/signup', uploader.single("avatar"), (req, res, next) => {
-	console.log(req.file)
-	 console.log(req.body);
+router.post('/signup', uploader.single('avatar'), (req, res) => {
+	//console.log(req.file);
+	//console.log(req.body);
 	const { name, lastname, email, avatar, phone, password, catsitter } = req.body;
 	const newUser = {
 		name,
 		lastname,
 		email,
-		phone,
-	}
+		phone
+	};
 	if (req.file) {
-		newUser.avatar = req.file.secure_url
+		newUser.avatar = req.file.secure_url;
 	}
 
 	const salt = bcrypt.genSaltSync(bcryptSalt);
 	const hashPass = bcrypt.hashSync(password, salt);
 
-
 	newUser.password = hashPass;
-	
+
 	User.create(newUser)
 		.then((user) => {
-
-			if (catsitter === "yes") {
-
+			if (catsitter === 'yes') {
 			}
-			const homeType = req.body.homeType;
-			const hasGarden = req.body.hasGarden;
-			const howManyAnimals = req.body.howManyAnimals;
-			const hasAnimals = req.body.hasAnimals;
-			const zipcode = req.body.zipcode;
-
+			const { homeType, hasGarden, howManyAnimals, hasAnimals, zipcode} = req.body;
 			Host.create({
 				user_id: user._id,
 				homeType,
@@ -71,7 +63,7 @@ router.post('/signup', uploader.single("avatar"), (req, res, next) => {
 		return;
 	}
 
-	router.post('/dashboard', (req, res, next) => {
+/* 	router.post('/dashboard', (req, res, next) => {
 		const userId = req.body._id;
 		const name = req.body.name;
 		const lastname = req.body.lastname;
@@ -96,7 +88,7 @@ router.post('/signup', uploader.single("avatar"), (req, res, next) => {
 			.catch((err) => {
 				res.redirect('/index', err);
 			});
-	});
+	}); */
 	/* 
 	User.findOne({ username }, 'username', (err, user) => {
 		if (user !== null) {
