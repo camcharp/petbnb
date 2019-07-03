@@ -8,8 +8,8 @@ const userSchema = new Schema(
 		email: { type: String, required: true },
 		phone: { type: String, required: true },
 		password: { type: String, required: true },
-		avatar: { type: String, required: true, default:'imageurl'},
-		cats: { type: Array },
+		avatar: { type: String, required: true, default:'/images/default_user.jpg'},
+		cats: [{ type: Schema.Types.ObjectId, ref: "Cat" }],
 		rate: { type: Number, default: 0 },
 	},
 	{

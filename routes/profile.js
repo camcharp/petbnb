@@ -1,14 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const uploader = require('./../config/cloudinary');
 
 const User = require('../models/User');
 const Cat = require('../models/Cat');
 // const Host = require('../models/Host');
 
-// Dashboard Page
-router.get('/dashboard', (req, res) => {
-	res.render('dashboard/my_profile');
-	User.find()
+// User Page
+router.use((req, res, next) => {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+});
+router.get('/dashboard', (req, res, next) => {
+	User.findById(req.session.currentUser._id)
 		.then((user) => {
 			res.render('dashboard/my_profile', { user });
 		})
@@ -17,22 +24,47 @@ router.get('/dashboard', (req, res) => {
 		});
 });
 
+// Update User
+router.post('/dashboard', (req, res, next) => {
+	const { name, lastname, email, phone } = req.body;
+	const userId = req.session.currentUser;
+	User.findByIdAndUpdate(userId, { name, lastname, email, phone })
+		.then((user) => {
+			res.redirect('/dashboard');
+			console.log('Modified succesfully !');
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+});
+
 // Cats Page
-router.get('/dashboard/cats', (req, res) => {
+router.use((req, res, next) => {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+});
+router.get('/dashboard/cats', (req, res, next) => {
 	res.render('dashboard/my_cats');
 });
 
 // Create Cats
-router.post('/dashboard/cats', (req, res) => {
+router.post('/dashboard/cats', uploader.single('catavatar'), (req, res) => {
+	console.log(req.file);
 	console.log(req.body);
-	const { catname, age, genre, personality, catavatar } = req.body;
-	Cat.create({
+	const { catname, age, genre, personality } = req.body;
+	const newCat = {
 		catname,
 		age,
 		genre,
-		personality,
-		catavatar
-	})
+		personality
+	};
+	if (req.file) {
+		newCat.catavatar = req.file.secure_url;
+	}
+	Cat.create(newCat)
 		.then((dbRes) => {
 			res.redirect('/dashboard/cats');
 		})
@@ -42,37 +74,18 @@ router.post('/dashboard/cats', (req, res) => {
 });
 
 // Booking Page
-router.get('/dashboard/bookings', (req, res) => {
+router.use((req, res, next) => {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+});
+router.get('/dashboard/bookings', (req, res, next) => {
 	res.render('dashboard/my_bookings');
 });
 
-/* 	router.post('/dashboard', (req, res, next) => {
-		const userId = req.body._id;
-		const name = req.body.name;
-		const lastname = req.body.lastname;
-		const email = req.body.email;
-		const phone = req.body.phone;
-		const avatar = req.body.avatar;
-
-		User.updateOne(
-			{ _id: userId },
-			{
-				name: name,
-				lastname: lastname,
-				email: email,
-				phone: phone,
-				avatar: avatar
-			}
-		)
-			.then((user) => {
-				console.log('Modified ' + user.name + ' succesfully !');
-				res.redirect('/index');
-			})
-			.catch((err) => {
-				res.redirect('/index', err);
-			});
-	}); */
-	/* 
+/* 
 	User.findOne({ username }, 'username', (err, user) => {
 		if (user !== null) {
 			res.render('auth/signup', { message: 'The username already exists' });

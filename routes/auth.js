@@ -49,6 +49,7 @@ router.post("/login", (req, res, next) => {
   })
 });
 
+// Create User
 router.post('/signup', uploader.single('avatar'), (req, res) => {
 	//console.log(req.file);
 	//console.log(req.body);
@@ -92,40 +93,6 @@ router.post('/signup', uploader.single('avatar'), (req, res) => {
 		res.render('auth/signup', { message: 'Indicate username and password' });
 		return;
 	}
-
-/* 	router.post('/dashboard', (req, res, next) => {
-		const userId = req.body._id;
-		const name = req.body.name;
-		const lastname = req.body.lastname;
-		const email = req.body.email;
-		const phone = req.body.phone;
-		const avatar = req.body.avatar;
-
-		User.updateOne(
-			{ _id: userId },
-			{
-				name: name,
-				lastname: lastname,
-				email: email,
-				phone: phone,
-				avatar: avatar
-			}
-		)
-			.then((user) => {
-				console.log('Modified ' + user.name + ' succesfully !');
-				res.redirect('/index');
-			})
-			.catch((err) => {
-				res.redirect('/index', err);
-			});
-	}); */
-	/* 
-	User.findOne({ username }, 'username', (err, user) => {
-		if (user !== null) {
-			res.render('auth/signup', { message: 'The username already exists' });
-			return;
-		} 
-	});*/
 });
 
 // Log Out
