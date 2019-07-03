@@ -8,15 +8,12 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const bcrypt     = require("bcrypt");
-const saltRounds = 10;
 
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 
-
-const flatpickr = require("flatpickr");
+// const flatpickr = require("flatpickr");
 
 mongoose
   .connect('mongodb://localhost/petbn', {useNewUrlParser: true})
@@ -72,13 +69,15 @@ app.locals.title = 'CatBnb';
 
 // Enable authentication using session + passport
 app.use(session({
-  secret: 'irongenerator',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
-app.use(flash());
-require('./passport')(app);
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+//require('./passport')(app);
     
 
 const index = require('./routes/index');

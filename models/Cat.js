@@ -10,8 +10,8 @@ const catSchema = new Schema(
       type: String,
       enum: ['calm', 'lazy', 'cuddly', 'loner', 'playful', 'big eater', 'grumpy', 'evil']
     },
-    catavatar: {type: String},
-    rate: {type: Number, min: 0, max: 5},
+    catavatar: {type: String, default: '/images/cat_icon.png'},
+    rate: {type: Number, min: 0, max: 5}
   },
   {
     timestamps: {

@@ -1,0 +1,106 @@
+<div class="cat-section">
+  <div class="section-title">
+    <h2 class="title-centered">My bookings</h2>
+  </div>
+  <div id="profile">
+  <div class="nav-dahsboard">
+    <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/CA/en/999/UP2538-CUSA05620_00-AV00000000000074/1555554384000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" alt="user avatar" class="avatar">
+    <ul>
+      <li>My profile</li>
+      <li><a href="/dashboard">Modify my infos</a></li>
+      <li><a href="/dashboard/cats">My cats</a></li>
+      <li><a href="/dashboard/bookings">My bookings</a></li>
+    </ul>
+  </div>
+  <div class="infos">
+
+  <div class="manage-wrapper">
+    <table class="manage-table">
+      <thead>
+        <tr class="table-row">
+          <th class="table-head">Image</th>
+          <th class="table-head">Name</th>
+          <th class="table-head">Age</th>
+          <th class="table-head">Edit</th>
+          <th class="table-head">Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+{{!--         {{#each cats}} --}}
+        <tr class="table-row">
+          <td class="table-division">
+            <div>
+              <img src="/images/cat_cuddle.jpg" alt="img" class="table-image"/>
+            </div>
+          </td>
+          <td class="table-division">
+            {{this.catname}}
+            <div>Kitto</div>
+              </td>
+              <td class="table-division">
+            <div>{{this.age}}3</div>
+          </td>
+          <td class="table-division">
+            <a href="/cat-edit/{{this._id}}" data-id-sneaker="{{this._id}}" class="class='fas fa-edit' table-icon"></a>
+
+
+          </td>
+          <td class="table-division">
+            <span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"  aria-hidden="true"></span>
+          </td>
+        </tr>
+{{!--         {{/each}}
+        {{#unless cats}} --}}
+{{!--         <tr>
+          <td colspan="6">sorry no cats yet</td>
+        </tr> 
+       {{/unless}} --}}
+      </tbody>
+    </table>
+  </div>
+
+    <h2>Add a cat profile</h2>
+    <br>
+    <form action="/dashboard/cats" method="POST" id="form-container">
+      <div class="form-element">
+        <label for="catname">Name</label>
+        <input id="catname" type="text" name="catname" value="Kitty" placeholder="ex: Kitty">
+      </div>
+      <br>
+      <div class="form-element">
+        <label for="age">Age</label>
+        <input id="age" type="number" name="age" min="1" max="25" value="2" placeholder="ex: 2">
+      </div>
+      <div class="form-element">
+      <br>
+      </div>
+        <label for="genre">Is you cat female or male?</label>
+        <input type="radio" id="female" name="genre" value="female" checked>
+        <label for="female">Female</label>
+        <input type="radio" id="male" name="genre" value="male">
+        <label for="male">Male</label>
+      <br><br>
+      <div class="form-element">
+        <label for="personality">Main personality type</label>
+        <select name="personality">
+          <option value="calm">Calm</option>
+          <option value="lazy">Lazy</option>
+          <option value="cuddly">Cuddly</option>
+          <option value="big eater">Big eater</option>
+          <option value="loner">Loner</option>
+          <option value="playful">Playful</option>
+          <option value="grumpy">Grumpy</option>
+          <option value="evil">Evil</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-element">
+        <label for="catavatar">Picture</label>
+        <input type="file" id="catavatar" name="catavatar" accept="image/png, image/jpeg">
+      </div>
+        <br><br>
+      <button class="validate">Save this cat</button>
+    </form>
+  </div>
+</div>
