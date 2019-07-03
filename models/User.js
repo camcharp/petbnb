@@ -10,7 +10,7 @@ const userSchema = new Schema(
 		password: { type: String, required: true },
 		avatar: { type: String, required: true, default:'imageurl'},
 		cats: { type: Array },
-		rate: { type: Number },
+		rate: { type: Number, default: 0 },
 	},
 	{
 		timestamps: {
