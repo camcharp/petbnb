@@ -10,4 +10,8 @@ router.get("/services", (req, res) => {
   res.render("services/services");
 });
 
+router.get("/profile", (req, res) => {
+  res.render("dashboard/user_profile");
+});
+
 module.exports = router;

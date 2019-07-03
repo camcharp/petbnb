@@ -16,12 +16,12 @@ router.use((req, res, next) => {
 });
 router.get('/dashboard', (req, res, next) => {
 	User.findById(req.session.currentUser._id)
-		.then((user) => {
-			res.render('dashboard/my_profile', { user });
-		})
-		.catch((err) => {
-			res.render('dashboard/my_profile', { err: 'an error occured' });
-		});
+	.then((user) => {
+		res.render('dashboard/my_profile', { user });
+	})
+	.catch((err) => {
+		res.render('dashboard/my_profile', { err: 'an error occured' });
+	});
 });
 
 // Update User
@@ -31,11 +31,24 @@ router.post('/dashboard', (req, res, next) => {
 	User.findByIdAndUpdate(userId, { name, lastname, email, phone })
 		.then((user) => {
 			res.redirect('/dashboard');
-			console.log('Modified succesfully !');
+			console.log('Modified succesfully!');
 		})
 		.catch((error) => {
 			console.log(error);
 		});
+});
+
+// Delete User
+router.get('/delete/:id', function(req, res) {
+	User.findByIdAndDelete(req.params.id)
+		.then((user) => {
+			console.log(user)
+			res.redirect("/");
+		})
+		.catch((err) => {
+			res.render('dashboard/my_profile', { err: 'an error occured' });
+		});
+	//res.send(req.body.data);
 });
 
 // Cats Page
@@ -72,6 +85,24 @@ router.post('/dashboard/cats', uploader.single('catavatar'), (req, res) => {
 			res.redirect('/dashboard/cats', err);
 		});
 });
+
+// Update Cats
+/* router.use((req, res, next) => {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+});
+router.get('/dashboard/cats', (req, res, next) => {
+	Cat.findById(req.session.currentUser._id)
+		.then((cats) => {
+			res.render('/dashboard/my_cats', { cats });
+		})
+		.catch((err) => {
+			res.render('/dashboard/my_cats', { err: 'an error occured' });
+		});
+}); */
 
 // Booking Page
 router.use((req, res, next) => {

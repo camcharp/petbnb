@@ -19,14 +19,12 @@ router.get("/login", (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-
   if (email === "" || password === "") {
     res.render("auth/login", {
       errorMessage: "Please enter both fields to sign up."
     });
     return;
   }
-
   User.findOne({ "email": email })
   .then(user => {
       if (!user) {

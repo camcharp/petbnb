@@ -9,12 +9,11 @@
       <a href="/services"><span class="nav-item"> Services </span></a>
       {{#if isLoggedIn}}
         <a href="/dashboard"><span class="nav-item"> My Account </span></a>
+        <a href="/logout"><span class="nav-item"> Log Out </span></a>
       {{/if}}
-      <a href="/logout"><span class="nav-item"> Log Out </span></a>
       {{#unless isLoggedIn}}
         <a href="/login"><span class="nav-item"> Log In </span></a>
       {{/unless}}
-      
         <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
         </label>

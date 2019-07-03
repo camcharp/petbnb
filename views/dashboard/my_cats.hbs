@@ -4,7 +4,7 @@
   </div>
   <div id="profile">
   <div class="nav-dahsboard">
-    <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/CA/en/999/UP2538-CUSA05620_00-AV00000000000074/1555554384000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" alt="user avatar" class="avatar">
+    <img src="{{user.avatar}}" alt="user avatar" class="avatar">
     <ul>
       <li>Dashboard</li>
       <li><a href="/dashboard">My infos</a></li>
@@ -27,35 +27,32 @@
       </thead>
 
       <tbody>
-{{!--         {{#each cats}} --}}
+        {{#each cats}}
         <tr class="table-row">
           <td class="table-division">
             <div>
-              <img src="/images/cat_cuddle.jpg" alt="img" class="table-image"/>
+              <img src="{{this.catavatar}}" alt="img" class="table-image"/>
             </div>
           </td>
           <td class="table-division">
-            {{this.catname}}
-            <div>Kitto</div>
+            <div>{{this.name}}Kitto</div>
               </td>
               <td class="table-division">
             <div>{{this.age}}3</div>
           </td>
           <td class="table-division">
-            <a class="class='fas fa-edit' href="/cat-edit/{{this._id}}" cat-id="{{this._id}}"  table-icon"></a>
-
-
+            <a  href="/dashboard/cats/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-edit"></i></a>
           </td>
           <td class="table-division">
-            <span class="fa fa-trash table-icon" cat-id="{{this._id}}"  aria-hidden="true"></span>
+            <a  href="delete/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-trash-alt"></i></a>
           </td>
+        {{/each }}
         </tr>
-{{!--         {{/each}}
-        {{#unless cats}} --}}
-{{!--         <tr>
-          <td colspan="6">sorry no cats yet</td>
+        {{#unless cats}}
+        <tr>
+          <td colspan="6">You have no cats registered yet.</td>
         </tr> 
-       {{/unless}} --}}
+       {{/unless}}
       </tbody>
     </table>
   </div>
