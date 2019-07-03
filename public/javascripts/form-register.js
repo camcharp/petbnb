@@ -1,5 +1,7 @@
 const catsitterInfos = document.getElementById('catsitter-infos');
 const hostsFields = catsitterInfos.querySelectorAll("input");
+const iconFile = document.getElementById("toggle_file_picker");
+const avatarPicker = document.getElementById("avatar");
 
 
 function resetFormHostValues() {
@@ -19,5 +21,5 @@ function displayCatSitterInfos(evt) {
   }
 }
 
-
+iconFile.onclick = () => avatarPicker.click();
 document.querySelectorAll('[name=catsitter]').forEach((input) => input.oninput = displayCatSitterInfos);

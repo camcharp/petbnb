@@ -3,7 +3,7 @@
 
 <div class="login">
   <h2>Create your account on CatBnb</h2>
-  <form action="/auth/signup" method="POST" id="form-container">
+  <form action="/auth/signup" method="POST" id="form-container" enctype="multipart/form-data">
 
     <div class="form-element">
       <label for="name">Name</label>
@@ -37,30 +37,38 @@
       <label for="password">Password</label>
       <input id="password" type="password" name="password" value="password" placeholder="Your password">
     </div>
+
+    <br>
+    <div class="form-element">
+      <label for="avatar">Avatar</label>
+      <i id="toggle_file_picker" class="fa fa-user is-clickable"></i>
+      <input id="avatar" type="file" name="avatar" class="hidden ">
+    </div>
     <br>
 
     <p>Do wou want to become a cat sitter?</p>
     <div>
-    <input type="radio" id="catsitter-yes" name="catsitter" value="yes" onChange="displayCatSitterInfos()">
-    <label for="huey">Yes</label>
+    <input type="radio" id="catsitter-yes" name="catsitter" value="yes">
+    <label for="catsitter">Yes</label>
     </div>
     <div>
-      <input type="radio" id="catsitter-no" name="catsitter" value="no" onChange="displayCatSitterInfos()">
-      <label for="dewey">No</label>
+      <input type="radio" id="catsitter-no" name="catsitter" value="no" checked>
+      <label for="catsitter">No</label>
     </div>
     
 <div class="hidden" id="catsitter-infos">
     <hr>
     <div class="form-element-large">
-    <label for="howManyAnimals">How many cats can you host?</label>
-    <input id="howManyAnimals" type="number" name="howManyAnimals" placeholder="1" min="1" max="4" step="1"></div>
+      <label for="howManyAnimals">How many cats can you host?</label>
+      <input id="howManyAnimals" type="number" name="howManyAnimals" value="1" min="1" max="4" step="1">
+    </div>
     <br>
     <hr>
 
     <p>What is the type of your home?</p>
     <div>
-    <input type="radio" id="home-house" name="homeType" value="house">
-    <label for="huey">House</label>
+      <input type="radio" id="home-house" name="homeType" value="house">
+      <label for="huey">House</label>
     </div>
     <div>
       <input type="radio" id="home-flat" name="homeType" value="flat">
@@ -71,8 +79,8 @@
 
     <p>Do you have a garden?</p>
     <div>
-    <input type="radio" id="garden-yes" name="hasGarden" value="yes">
-    <label for="garden-yes">Yes</label>
+      <input type="radio" id="garden-yes" name="hasGarden" value="yes">
+      <label for="garden-yes">Yes</label>
     </div>
     <div>
       <input type="radio" id="garden-no" name="hasGarden" value="no">
@@ -83,15 +91,22 @@
 
     <p>Do you have any animals? (other than cat sitting)</p>
     <div>
-    <input type="radio" id="animals-yes" name="hasAnimals" value="yes">
-    <label for="yes">Yes</label>
+      <input type="radio" id="animals-yes" name="hasAnimals" value="yes">
+      <label for="yes">Yes</label>
     </div>
     <div>
       <input type="radio" id="animals-no" name="hasAnimals" value="no">
       <label for="no">No</label>
       <hr>
-     </div> </div>
-    <button type="submit">Create account</button>
+    </div>
+
+    <p>What is your zipcode?</p>
+    <div>
+      <input type="text" id="zipcode" name="zipcode" value="75000" placeholder="75000">
+      </div>
+    <hr>
+    </div>
+    <button type="submit">Create account</button> 
   </form>
 
     

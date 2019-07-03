@@ -44,6 +44,12 @@ button:hover {
   cursor: pointer;
 }
 
+
+.is-clickable {
+  cursor: pointer;
+}
+
+
 .hidden {
   display: none;
 }
@@ -365,14 +371,21 @@ button:hover {
 
 /*                         SERVICES                          */
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .col-xs-12 {
   padding-left: 20%;
   padding-right: 20%;
 }
 
-.text-center {
+.icon-services {
   display: flex;
   justify-content: center;
+  color: $red;
+  font-size: 3rem;
 }
 
 .pricing-card {
@@ -397,10 +410,21 @@ button:hover {
 .pricing-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+}
+
+.pricing-card .price, h3 {
+  font-size: 2em;
+  padding: 2rem 0;
+  color: #fff;
+}
+
+.col-md-4 {
+  width: 30%;
 }
 
 .services-image {
-  background-image: url(/images/sleeping_cat.jpg);
+  background-image: url(/images/cat3.jpg);
   width: 95%;
   height: auto;
   background-repeat: no-repeat;

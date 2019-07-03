@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require('../models/User');
 const Host = require('../models/Host');
+const uploader = require("./../config/cloudinary");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt');
@@ -18,21 +19,27 @@ router.post(
 	})
 );
 
-router.post('/signup', (req, res, next) => {
-	return console.log(req.body);
+router.post('/signup', uploader.single("avatar"), (req, res, next) => {
+	console.log(req.file)
+	 console.log(req.body);
 	const { name, lastname, email, avatar, phone, password, catsitter } = req.body;
-
-	const salt = bcrypt.genSaltSync(bcryptSalt);
-	const hashPass = bcrypt.hashSync(password, salt);
-
-	User.create({
+	const newUser = {
 		name,
 		lastname,
 		email,
 		phone,
-		avatar,
-		password: hashPass
-	})
+	}
+	if (req.file) {
+		newUser.avatar = req.file.secure_url
+	}
+
+	const salt = bcrypt.genSaltSync(bcryptSalt);
+	const hashPass = bcrypt.hashSync(password, salt);
+
+
+	newUser.password = hashPass;
+	
+	User.create(newUser)
 		.then((user) => {
 
 			if (catsitter === "yes") {

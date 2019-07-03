@@ -6,7 +6,7 @@ const hostSchema = new Schema(
     user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     street: { type: String},
     city: { type: String},
-    zipCode: { type: Number },
+    zipcode: { type: String,required: true, },
     homeType: { type: String, required: true, enum:['house','flat'] },
     hasGarden: { type: String, enum:['yes','no'], required: true },
     howManyAnimals: { type: Number, required: true },
