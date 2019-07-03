@@ -19,15 +19,9 @@ router.post(
 );
 
 router.post('/signup', (req, res, next) => {
-	const name = req.body.name;
-	const lastname = req.body.lastname;
-	const email = req.body.email;
-	const phone = req.body.phone;
-	const avatar = req.body.avatar;
-	const cats = req.body.cats;
-	const rate = req.body.rate;
+	return console.log(req.body);
+	const { name, lastname, email, avatar, phone, password, catsitter } = req.body;
 
-	const password = req.body.password;
 	const salt = bcrypt.genSaltSync(bcryptSalt);
 	const hashPass = bcrypt.hashSync(password, salt);
 
@@ -36,26 +30,30 @@ router.post('/signup', (req, res, next) => {
 		lastname,
 		email,
 		phone,
-		password,
 		avatar,
-		cats,
-		rate,
 		password: hashPass
 	})
 		.then((user) => {
+
+			if (catsitter === "yes") {
+
+			}
 			const homeType = req.body.homeType;
 			const hasGarden = req.body.hasGarden;
 			const howManyAnimals = req.body.howManyAnimals;
 			const hasAnimals = req.body.hasAnimals;
-			if (document.getElementById('catsitter-yes').checked == true) {
-				Host.create({
-					user_id: user._id,
-					homeType,
-					hasGarden,
-					howManyAnimals,
-					hasAnimals
-				})};
-			console.log(req.body);
+			const zipcode = req.body.zipcode;
+
+			Host.create({
+				user_id: user._id,
+				homeType,
+				hasGarden,
+				howManyAnimals,
+				hasAnimals,
+				zipcode
+			});
+			//}
+
 			res.redirect('/dashboard');
 		})
 		.catch((err) => {
@@ -65,7 +63,34 @@ router.post('/signup', (req, res, next) => {
 		res.render('auth/signup', { message: 'Indicate username and password' });
 		return;
 	}
-/* 
+
+	router.post('/dashboard', (req, res, next) => {
+		const userId = req.body._id;
+		const name = req.body.name;
+		const lastname = req.body.lastname;
+		const email = req.body.email;
+		const phone = req.body.phone;
+		const avatar = req.body.avatar;
+
+		User.updateOne(
+			{ _id: userId },
+			{
+				name: name,
+				lastname: lastname,
+				email: email,
+				phone: phone,
+				avatar: avatar
+			}
+		)
+			.then((user) => {
+				console.log('Modified ' + user.name + ' succesfully !');
+				res.redirect('/index');
+			})
+			.catch((err) => {
+				res.redirect('/index', err);
+			});
+	});
+	/* 
 	User.findOne({ username }, 'username', (err, user) => {
 		if (user !== null) {
 			res.render('auth/signup', { message: 'The username already exists' });
