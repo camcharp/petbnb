@@ -51,6 +51,11 @@ button:hover {
   background-color: #f38181;
   color: white; }
 
+.center-button {
+  width: 30%;
+  padding: 2% 0;
+  margin: 0 auto; }
+
 /*                         /GLOBAL                          */
 /*                          MANAGE                          */
 .manage-table, th, td {
@@ -395,6 +400,72 @@ footer {
 
 /*                       /FOOTER                          */
 /*                        BOOKING                          */
+.button-search-host {
+  background-color: #f38181;
+  font-family: "Montserrat",sans-serif;
+  font-size: 1rem;
+  width: 220px;
+  height: auto;
+  padding: 1.5%;
+  border-radius: 6%;
+  color: white; }
+
+.form-group {
+  text-align: left;
+  border-bottom: 1px solid #506982;
+  padding: 3%; }
+
+.search-inputs {
+  width: 60%;
+  margin: 0 auto; }
+
+.display-container {
+  display: grid;
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3%;
+  grid-row-gap: 3%;
+  align-items: center; }
+
+.user-card {
+  border: 2px outset rgba(243, 129, 129, 0.3);
+  border-radius: 0px 40px 0px 0px;
+  width: 400px;
+  height: 150px;
+  display: flex;
+  flex-direction: row; }
+
+.user-card-avatar img {
+  width: 150px;
+  height: 150px; }
+
+#user-card-names {
+  font-size: 1.3rem; }
+
+.user-card-text-align {
+  display: flex;
+  flex-direction: row; }
+
+.city {
+  margin-left: 20%; }
+
+.controls {
+  padding: 2% 0; }
+
+.button-view-profile {
+  background-color: #f38181;
+  font-family: "Montserrat",sans-serif;
+  font-size: 1rem;
+  width: 220px;
+  height: auto;
+  padding: 4.5%;
+  border-radius: 6%; }
+
+.button-view-profile a {
+  color: white; }
+
 h2.heading {
   font-size: 1.5rem;
   text-transform: uppercase;
