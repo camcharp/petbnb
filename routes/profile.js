@@ -105,6 +105,18 @@ router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
   //   });
 });
 
+// Delete Cat
+router.get("/dashboard/delete/cats/:id", function(req, res) {
+  Cat.findByIdAndDelete(req.params.id)
+    .then(user => {
+      console.log(user);
+      res.redirect("/dashboard/cats");
+    })
+    .catch(err => {
+      res.render("/dashboard/cats", { err: "an error occured" });
+    });
+});
+
 // Update Cats
 /* router.use((req, res, next) => {
 	if (req.session.currentUser) {

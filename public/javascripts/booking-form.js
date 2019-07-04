@@ -23,7 +23,7 @@ function createHost(arr) {
       </div>
       <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
       <button class="button-view-profile">
-        <a href="/profile/${element._id} target="_blank"">View profile</a>
+        <a href="/profile/${element.user_id.avatar_id} target="_blank"">View profile</a>
       </button>
     </div>
   </div>`)
