@@ -68,9 +68,7 @@ router.get("/dashboard/cats", (req, res, next) => {
 
 // Create Cats
 router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
-  // return console.log(req.body);
   const userId = req.session.currentUser._id;
-
   const { catname, age, genre, personality } = req.body;
   if (req.file) var catavatar = req.file.secure_url;
   Cat.create({

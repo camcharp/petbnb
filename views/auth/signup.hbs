@@ -55,7 +55,6 @@
       <input type="radio" id="catsitter-no" name="catsitter" value="no" checked>
       <label for="catsitter">No</label>
     </div>
-    
 <div class="hidden" id="catsitter-infos">
     <hr>
     <div class="form-element-large">
@@ -64,14 +63,13 @@
     </div>
     <br>
     <hr>
-
     <p>What is the type of your home?</p>
     <div>
       <input type="radio" id="home-house" name="homeType" value="house">
       <label for="house">House</label>
     </div>
     <div>
-      <input type="radio" id="home-flat" name="homeType" value="flat">
+      <input type="radio" id="home-flat" name="homeType" value="flat" checked>
       <label for="flat">Flat</label>
     </div>
     <br>
@@ -83,23 +81,26 @@
       <label for="garden-yes">Yes</label>
     </div>
     <div>
-      <input type="radio" id="garden-no" name="hasGarden" value="no">
+      <input type="radio" id="garden-no" name="hasGarden" value="no" checked>
       <label for="garden-no">No</label>
     </div>
     <br>
     <hr>
-
     <p>Do you have any animals? (other than cat sitting)</p>
     <div>
       <input type="radio" id="animals-yes" name="hasAnimals" value="yes">
       <label for="yes">Yes</label>
     </div>
     <div>
-      <input type="radio" id="animals-no" name="hasAnimals" value="no">
+      <input type="radio" id="animals-no" name="hasAnimals" value="no" checked>
       <label for="no">No</label>
       <hr>
     </div>
-
+    <div class="form-element-large">
+      <label for="name">What is your city of living?</label>
+      <input id="city" type="text" name="city"  value="Paris" placeholder="Paris">
+    </div>
+    <hr>
     <p>What is your zipcode?</p>
     <div>
       <input type="text" id="zipcode" name="zipcode" value="75000" placeholder="75000">

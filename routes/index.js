@@ -34,8 +34,8 @@ router.get("/hosts/api", (req,res) => {
 router.get("/profile/:id", (req, res) => {
   console.log(req.params.id)
   User.findById(req.params.id)
-  .then((user) => {
-		res.render('dashboard/user_profile', { user });
+  .then((profile) => {
+		res.render('dashboard/user_profile', { profile });
 	})
 	.catch((err) => {
 		res.render('dashboard/user_profile', { err: 'an error occured' });

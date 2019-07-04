@@ -311,6 +311,9 @@ th, td {
   font-family: "Montserrat",sans-serif;
   border-radius: 6%; }
 
+.validate a {
+  color: white; }
+
 table a {
   color: #f38181; }
 
@@ -424,7 +427,6 @@ footer {
   height: auto;
   margin: 20px auto;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 3%;
   grid-row-gap: 3%;
   align-items: center; }
 
@@ -443,9 +445,16 @@ footer {
 #user-card-names {
   font-size: 1.3rem; }
 
+.user-card-text {
+  padding: 0 5%; }
+
 .user-card-text-align {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  padding: 0; }
+
+.user-card-text-align p {
+  margin-bottom: 0; }
 
 .city {
   margin-left: 20%; }
@@ -457,9 +466,9 @@ footer {
   background-color: #f38181;
   font-family: "Montserrat",sans-serif;
   font-size: 1rem;
-  width: 220px;
+  width: 100px;
   height: auto;
-  padding: 4.5%;
+  padding: 1.5%;
   border-radius: 6%; }
 
 .button-view-profile a {
