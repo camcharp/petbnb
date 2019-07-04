@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const User = require('../models/User');
-const Host = require('../models/Host');
-const uploader = require('./../config/cloudinary');
+const User = require("../models/User");
+const Host = require("../models/Host");
+const uploader = require("./../config/cloudinary");
 
 // Bcrypt to encrypt passwords
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup", {scripts: ["form-register.js"]});
+  res.render("auth/signup", { scripts: ["form-register.js"] });
 });
 
 router.get("/login", (req, res, next) => {
@@ -25,8 +25,8 @@ router.post("/login", (req, res, next) => {
     });
     return;
   }
-  User.findOne({ "email": email })
-  .then(user => {
+  User.findOne({ email: email })
+    .then(user => {
       if (!user) {
         res.render("auth/login", {
           errorMessage: "This email isn't linked to any account."
@@ -41,61 +41,75 @@ router.post("/login", (req, res, next) => {
           errorMessage: "Incorrect password"
         });
       }
-  })
-  .catch(error => {
-    next(error);
-  })
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 // Create User
-router.post('/signup', uploader.single('avatar'), (req, res) => {
-	//console.log(req.file);
-	//console.log(req.body);
-	const { name, lastname, email, avatar, phone, password, catsitter } = req.body;
-	const newUser = {
-		name,
-		lastname,
-		email,
-		phone
-	};
-	if (req.file) {
-		newUser.avatar = req.file.secure_url;
-	}
+router.post("/signup", uploader.single("avatar"), (req, res) => {
+  //console.log(req.file);
+  //console.log(req.body);
+  const {
+    name,
+    lastname,
+    email,
+    avatar,
+    phone,
+    password,
+    catsitter
+  } = req.body;
+  const newUser = {
+    name,
+    lastname,
+    email,
+    phone
+  };
+  if (req.file) {
+    newUser.avatar = req.file.secure_url;
+  }
 
-	const salt = bcrypt.genSaltSync(bcryptSalt);
-	const hashPass = bcrypt.hashSync(password, salt);
+  const salt = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
 
-	newUser.password = hashPass;
+  newUser.password = hashPass;
 
-	User.create(newUser)
-		.then((user) => {
-			if (catsitter === 'yes') {
-			}
-			const { homeType, hasGarden, howManyAnimals, hasAnimals, zipcode} = req.body;
-			Host.create({
-				user_id: user._id,
-				homeType,
-				hasGarden,
-				howManyAnimals,
-				hasAnimals,
-				zipcode
-			});
-			//}
+  User.create(newUser)
+    .then(user => {
+      if (catsitter === "yes") {
+      }
+      const {
+        homeType,
+        hasGarden,
+        howManyAnimals,
+        hasAnimals,
+        zipcode
+      } = req.body;
+      Host.create({
+        user_id: user._id,
+        homeType,
+        hasGarden,
+        howManyAnimals,
+        hasAnimals,
+        zipcode
+      });
+      //}
 
-			res.redirect('/dashboard');
-		})
-		.catch((err) => {
-			res.redirect('/dashboard', err);
-		});
-	if (email === '' || password === '') {
-		res.render('auth/signup', { message: 'Indicate username and password' });
-		return;
-	}
+      res.redirect("/dashboard");
+    })
+    .catch(err => {
+      res.redirect("/dashboard", err);
+    });
+  if (email === "" || password === "") {
+    res.render("auth/signup", { message: "Indicate username and password" });
+    return;
+  }
 });
 
 // Log Out
 router.get("/logout", (req, res, next) => {
-  req.session.destroy((err) => {
+  req.session.destroy(err => {
     res.redirect("/login");
   });
 });
