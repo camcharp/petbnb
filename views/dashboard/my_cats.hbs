@@ -3,101 +3,101 @@
     <h2 class="title-centered">My cats</h2>
   </div>
   <div id="profile">
-  <div class="nav-dahsboard">
-    <img src="{{user.avatar}}" alt="user avatar" class="avatar">
-    <ul>
-      <li>Dashboard</li>
-      <li><a href="/dashboard">My infos</a></li>
-      <li><a href="/dashboard/cats">My cats</a></li>
-      <li><a href="/dashboard/bookings">My bookings</a></li>
-    </ul>
-  </div>
-  <div class="infos">
+    <div class="nav-dahsboard">
+      <img src="{{user.avatar}}" alt="user avatar" class="avatar">
+      <ul>
+        <li>Dashboard</li>
+        <li><a href="/dashboard">My infos</a></li>
+        <li><a href="/dashboard/cats">My cats</a></li>
+        <li><a href="/dashboard/bookings">My bookings</a></li>
+      </ul>
+    </div>
+    <div class="infos">
 
-  <div class="manage-wrapper">
-    <table class="manage-table">
-      <thead>
-        <tr class="table-row">
-          <th class="table-head">Image</th>
-          <th class="table-head">Name</th>
-          <th class="table-head">Age</th>
-          <th class="table-head">Edit</th>
-          <th class="table-head">Delete</th>
-        </tr>
-      </thead>
+      <div class="manage-wrapper">
+        <table class="manage-table">
+          <thead>
+            <tr class="table-row">
+              <th class="table-head">Image</th>
+              <th class="table-head">Name</th>
+              <th class="table-head">Age</th>
+              <th class="table-head">Edit</th>
+              <th class="table-head">Delete</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        {{#each cats}}
-        <tr class="table-row">
-          <td class="table-division">
-            <div>
-              <img src="{{this.catavatar}}" alt="img" class="table-image"/>
-            </div>
-          </td>
-          <td class="table-division">
-            <div>{{this.name}}Kitto</div>
+          <tbody>
+            {{#each cats}}
+            <tr class="table-row">
+              <td class="table-division">
+                <div>
+                  <img src="{{this.catavatar}}" alt="img" class="table-image" />
+                </div>
               </td>
               <td class="table-division">
-            <div>{{this.age}}3</div>
-          </td>
-          <td class="table-division">
-            <a  href="/dashboard/cats/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-edit"></i></a>
-          </td>
-          <td class="table-division">
-            <a  href="delete/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-trash-alt"></i></a>
-          </td>
-        {{/each }}
-        </tr>
-        {{#unless cats}}
-        <tr>
-          <td colspan="6">You have no cats registered yet.</td>
-        </tr> 
-       {{/unless}}
-      </tbody>
-    </table>
-  </div>
+                <div>{{this.catname}}</div>
+              </td>
+              <td class="table-division">
+                <div>{{this.age}}3</div>
+              </td>
+              <td class="table-division">
+                <a href="/dashboard/cats/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-edit"></i></a>
+              </td>
+              <td class="table-division">
+                <a href="delete/{{this._id}}" cat-id="{{this._id}}"><i class="fas fa-trash-alt"></i></a>
+              </td>
+              {{/each }}
+            </tr>
+            {{#unless cats}}
+            <tr>
+              <td colspan="6">You have no cats registered yet.</td>
+            </tr>
+            {{/unless}}
+          </tbody>
+        </table>
+      </div>
 
-    <h2>Add a cat profile</h2>
-    <br>
-    <form action="/dashboard/cats" method="POST" id="form-container">
-      <div class="form-element">
-        <label for="catname">Name</label>
-        <input id="catname" type="text" name="catname" value="Kitty" placeholder="ex: Kitty">
-      </div>
+      <h2>Add a cat profile</h2>
       <br>
-      <div class="form-element">
-        <label for="age">Age</label>
-        <input id="age" type="number" name="age" min="1" max="25" value="2" placeholder="ex: 2">
-      </div>
-      <div class="form-element">
-      <br>
-      </div>
+      <form action="/dashboard/cats" method="POST" id="form-container" enctype="multipart/form-data">
+        <div class="form-element">
+          <label for="catname">Name</label>
+          <input id="catname" type="text" name="catname" value="Kitty" placeholder="ex: Kitty">
+        </div>
+        <br>
+        <div class="form-element">
+          <label for="age">Age</label>
+          <input id="age" type="number" name="age" min="1" max="25" value="2" placeholder="ex: 2">
+        </div>
+        <div class="form-element">
+          <br>
+        </div>
         <label for="genre">Is you cat female or male?</label>
         <input type="radio" id="female" name="genre" value="female" checked>
         <label for="female">Female</label>
         <input type="radio" id="male" name="genre" value="male">
         <label for="male">Male</label>
-      <br><br>
-      <div class="form-element">
-        <label for="personality">Main personality type</label>
-        <select name="personality">
-          <option value="calm">Calm</option>
-          <option value="lazy">Lazy</option>
-          <option value="cuddly">Cuddly</option>
-          <option value="big eater">Big eater</option>
-          <option value="loner">Loner</option>
-          <option value="playful">Playful</option>
-          <option value="grumpy">Grumpy</option>
-          <option value="evil">Evil</option>
-        </select>
-      </div>
-      <br>
-      <div class="form-element">
-        <label for="catavatar">Picture</label>
-        <input type="file" id="catavatar" name="catavatar">
-      </div>
         <br><br>
-      <button class="validate">Save this cat</button>
-    </form>
+        <div class="form-element">
+          <label for="personality">Main personality type</label>
+          <select name="personality">
+            <option value="calm">Calm</option>
+            <option value="lazy">Lazy</option>
+            <option value="cuddly">Cuddly</option>
+            <option value="big eater">Big eater</option>
+            <option value="loner">Loner</option>
+            <option value="playful">Playful</option>
+            <option value="grumpy">Grumpy</option>
+            <option value="evil">Evil</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-element">
+          <label for="catavatar">Picture</label>
+          <input type="file" id="catavatar" name="catavatar">
+        </div>
+        <br><br>
+        <button class="validate">Save this cat</button>
+      </form>
+    </div>
   </div>
-</div>
