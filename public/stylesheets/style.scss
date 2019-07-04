@@ -431,7 +431,6 @@ table a {
 
 .container {
   width: 80%;
-  margin: 0 auto;
 }
 
 .col-xs-12 {
@@ -538,7 +537,7 @@ footer {
   display: grid;
   width: 70%;
   height: auto;
-  margin: 0 auto;
+  margin: 20px auto;
   grid-template-columns: 1fr 1fr;
   //grid-template-rows: 1fr 1fr;
   grid-column-gap: 3%;

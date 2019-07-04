@@ -16,8 +16,19 @@ router.get("/services", (req, res) => {
 
 // Hosts Page
 router.get("/hosts", (req, res) => {
-  res.render("services/hosts");
+  Host.find().populate("user_id")
+  .then(dbRes => res.render("services/hosts", {dbRes}))
+  .catch(dbErr => console.log(dbErr))
 });
+
+// Host Page API
+router.get("/hosts/api", (req,res) => {
+  Host.find().populate("user_id") 
+  .then(dbRes => {
+    res.send(dbRes)
+  })
+  .catch(err => console.log(err))
+})
 
 // Profile Page
 router.get("/profile/:id", (req, res) => {

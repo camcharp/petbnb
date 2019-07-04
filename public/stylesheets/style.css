@@ -332,8 +332,7 @@ table a {
 /*                       /DASHBOARD                         */
 /*                         SERVICES                          */
 .container {
-  width: 80%;
-  margin: 0 auto; }
+  width: 80%; }
 
 .col-xs-12 {
   padding-left: 20%;
@@ -423,7 +422,7 @@ footer {
   display: grid;
   width: 70%;
   height: auto;
-  margin: 0 auto;
+  margin: 20px auto;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 3%;
   grid-row-gap: 3%;

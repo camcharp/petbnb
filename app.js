@@ -34,6 +34,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.locals.siteurl = process.env.SITE_URL
 
 // Express View engine setup
 
