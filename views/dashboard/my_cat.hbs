@@ -1,0 +1,18 @@
+<div class="infos">
+  <h2>My infos</h2><br>
+  <form action="/dashboard/cats/{{cat._id}}" method="POST" id="form-container">
+    <div class="form-element">
+      <label for="catname">Name</label>
+      <input id="catname" type="text" name="catname" value="{{cat.catname}}" placeholder="Jon">
+    </div>
+    <br>
+    <div class="form-element">
+      <label for="age">Age</label>
+      <input id="age" type="text" name="age" value="{{cat.age}}" placeholder="Snow">
+    </div>
+    <br>
+
+    <button class="validate">Update my cat</button>
+
+  </form>
+</div>

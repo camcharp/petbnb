@@ -87,22 +87,6 @@ router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
     .catch(err => {
       res.render("dashboard/my_cats", { errorMsg: "Incomplete fields" });
     });
-  // const newCat = {
-  //   catname,
-  //   age,
-  //   genre,
-  //   personality
-  // };
-  // if (req.file) {
-  //   newCat.catavatar = req.file.secure_url;
-  // }
-  // Cat.create(newCat)
-  //   .then(dbRes => {
-  //     res.redirect("/dashboard/cats"), { dbRes };
-  //   })
-  //   .catch(err => {
-  //     res.redirect("/dashboard/cats", err);
-  //   });
 });
 
 // Delete Cat
@@ -117,23 +101,15 @@ router.get("/dashboard/delete/cats/:id", function(req, res) {
     });
 });
 
-// Update Cats
-/* router.use((req, res, next) => {
-	if (req.session.currentUser) {
-		next();
-	} else {
-		res.redirect('/login');
-	}
+router.get("/dashboard/cats", (req, res, next) => {
+  Cat.findById(req.session.currentUser._id)
+    .then(cats => {
+      res.render("/dashboard/my_cats", { cats });
+    })
+    .catch(err => {
+      res.render("/dashboard/my_cats", { err: "an error occured" });
+    });
 });
-router.get('/dashboard/cats', (req, res, next) => {
-	Cat.findById(req.session.currentUser._id)
-		.then((cats) => {
-			res.render('/dashboard/my_cats', { cats });
-		})
-		.catch((err) => {
-			res.render('/dashboard/my_cats', { err: 'an error occured' });
-		});
-}); */
 
 // Booking Page
 router.use((req, res, next) => {
@@ -145,6 +121,30 @@ router.use((req, res, next) => {
 });
 router.get("/dashboard/bookings", (req, res, next) => {
   res.render("dashboard/my_bookings");
+});
+
+// Get to Cat Page
+router.get("/dashboard/cats/:id", (req, res, next) => {
+  const catId = req.params.id;
+  Cat.findById(catId)
+    .then(cat => {
+      res.render("dashboard/my_cat", { cat });
+    })
+    .catch(err => res.redirect("/"));
+});
+
+// Update Cat
+router.post("/dashboard/cats/:id", (req, res, next) => {
+  const { catname, age } = req.body;
+  const catId = req.params.id;
+  Cat.findByIdAndUpdate(catId, { catname, age })
+    .then(cat => {
+      res.redirect("/dashboard/cats");
+      console.log("Modified succesfully!");
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 /* 
