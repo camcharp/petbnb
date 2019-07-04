@@ -84,7 +84,8 @@ router.post("/signup", uploader.single("avatar"), (req, res) => {
         hasGarden,
         howManyAnimals,
         hasAnimals,
-        zipcode
+        zipcode,
+        city,
       } = req.body;
       Host.create({
         user_id: user._id,
@@ -92,7 +93,8 @@ router.post("/signup", uploader.single("avatar"), (req, res) => {
         hasGarden,
         howManyAnimals,
         hasAnimals,
-        zipcode
+        zipcode,
+        city,
       });
       //}
 
