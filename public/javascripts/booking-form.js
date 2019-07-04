@@ -19,14 +19,17 @@ function createHost(arr) {
     <div class="user-card-text">
       <div class="user-card-text-align">
         <p id="user-card-name">${element.user_id.name}</p>
-        <p class="city">${element.city}</p>
+        <p class="city"><i class="fas fa-map-marker-alt"></i> ${element.city}</p>
       </div>
       <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
       <button class="button-view-profile">
-        <a href="/profile/${element.user_id.avatar_id} target="_blank"">View profile</a>
+      <a href="/profile/${element.user_id.avatar_id} target="_blank"">View profile</a>
+      </button>
+      <button class="button-view-profile">
+        <a href="/ target="_blank"">Choose this host</a>
       </button>
     </div>
-  </div>`)
+  </div> `)
   });
 }
 

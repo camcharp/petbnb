@@ -179,6 +179,7 @@ th, td {
   @media all and (max-width:800px) {
     .show-menu-btn,.hide-menu-btn{
       display: block;
+      padding: 0 6%;
     }
     .menu{
       position: fixed;
@@ -194,6 +195,7 @@ th, td {
     }
     .menu a{
       display: block;
+      padding-top: 40px;
       padding-bottom: 20px;
       cursor: pointer;
     }
@@ -213,7 +215,7 @@ th, td {
   position: relative;
   text-transform: uppercase;
   text-decoration: none;
-  padding-bottom: 5px;
+  padding: 5px;
 
   &:before,
   &:after {

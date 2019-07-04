@@ -130,7 +130,8 @@ th, td {
 /*        RESPONSIVE NAV BAR            */
 @media all and (max-width: 800px) {
   .show-menu-btn, .hide-menu-btn {
-    display: block; }
+    display: block;
+    padding: 0 6%; }
   .menu {
     position: fixed;
     width: 100%;
@@ -144,6 +145,7 @@ th, td {
     transition: 0.7s; }
   .menu a {
     display: block;
+    padding-top: 40px;
     padding-bottom: 20px;
     cursor: pointer; }
   .hide-menu-btn {
@@ -158,7 +160,7 @@ th, td {
   position: relative;
   text-transform: uppercase;
   text-decoration: none;
-  padding-bottom: 5px; }
+  padding: 5px; }
   .nav-item:before, .nav-item:after {
     content: '';
     position: absolute;
