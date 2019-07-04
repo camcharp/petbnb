@@ -79,7 +79,7 @@ router.post('/dashboard/cats', uploader.single('catavatar'), (req, res) => {
 	}
 	Cat.create(newCat)
 		.then((dbRes) => {
-			res.redirect('/dashboard/cats');
+			res.redirect('/dashboard/cats'),{ dbRes };
 		})
 		.catch((err) => {
 			res.redirect('/dashboard/cats', err);

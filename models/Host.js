@@ -12,7 +12,8 @@ const hostSchema = new Schema(
     howManyAnimals: { type: Number, required: true },
     hasAnimals: { type: String, enum:['yes','no'], required: true },
     priceDay: { type: Number, max: 50 },
-    rate: { type: Number, min: 0, max: 5 }
+    description: { type: String },
+    rate: { type: Number, min: 0, max: 5 },
   },
   {
     timestamps: {
