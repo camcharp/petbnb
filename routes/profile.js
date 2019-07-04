@@ -60,12 +60,17 @@ router.use((req, res, next) => {
   }
 });
 router.get("/dashboard/cats", (req, res, next) => {
-  res.render("dashboard/my_cats");
+  Cat.find({ owner: req.session.currentUser._id }).then(dbRes => {
+    console.log(dbRes);
+    res.render("dashboard/my_cats", { cats: dbRes });
+  });
 });
 
 // Create Cats
 router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
+  // return console.log(req.body);
   const userId = req.session.currentUser._id;
+
   const { catname, age, genre, personality } = req.body;
   if (req.file) var catavatar = req.file.secure_url;
   Cat.create({
@@ -77,7 +82,7 @@ router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
     catavatar
   })
     .then(createdCat => {
-      res.redirect("/dashboard");
+      res.redirect("/dashboard/cats");
     })
     .catch(err => {
       res.render("dashboard/my_cats", { errorMsg: "Incomplete fields" });
