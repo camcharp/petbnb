@@ -5,6 +5,12 @@ $brown: #584E4A;
 $whitey: white;
 $f0f0f0: ivory;
 
+$border: 		 #c6c6c6;
+$border-focus: #9FB1C1;
+$brand-color:  #1b3d4d;
+$booking-green: #bdcc00;
+$asphalt: 		#506982;
+
 $duration: .3s;
 $distance: 0.8px;
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
@@ -60,7 +66,7 @@ button:hover {
 
 .form-element label {
   display: inline-block;
-  width: 255px;
+  width: 155px;
 }
 
 .form-element-large label {
@@ -498,3 +504,21 @@ footer {
 }
 
 /*                       /FOOTER                          */
+
+/*                        BOOKING                          */
+h2.heading{
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-align: left;
+	color: $red;
+	border-bottom: 1px solid $asphalt;
+	padding-bottom: 3px;
+	margin-bottom: 20px;
+}
+
+#booking-search {
+  width: 70%;
+  margin: 20px auto;
+}
+/*                       /BOOKING                          */

@@ -37,7 +37,7 @@ button:hover {
 
 .form-element label {
   display: inline-block;
-  width: 255px; }
+  width: 155px; }
 
 .form-element-large label {
   display: inline-block;
@@ -394,5 +394,21 @@ footer {
   color: #f38181; }
 
 /*                       /FOOTER                          */
+/*                        BOOKING                          */
+h2.heading {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: left;
+  color: #f38181;
+  border-bottom: 1px solid #506982;
+  padding-bottom: 3px;
+  margin-bottom: 20px; }
+
+#booking-search {
+  width: 70%;
+  margin: 20px auto; }
+
+/*                       /BOOKING                          */
 
 /*# sourceMappingURL=style.css.map */
