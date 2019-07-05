@@ -1,29 +1,37 @@
-<div class="section-title"><h2 class="title-centered">Conclude your deal!</h2></div>
+<div class="section-title"><h2 class="title-centered">Booking details</h2></div>
 
-<form action="/booking" id="make-deal-form">
-    <h2 class="heading">Booking details</h2>          
-      <div class="search-inputs">
+<form action="/booking" method="post" id="make-deal-form">
+{{!--     <h2 class="heading">Booking details</h2>      --}}     
+      <input type="hidden" name="user_id" value="{{client._id}}"> 
+      <input type="hidden" name="host_id" value="{{host._id}}">
+      <div class="search-inputs-deal">
         <div class="col-1-3"></div>
-          <h3>You chose {{host.user_id.name}} to host your cat</h3>
+          <h3>Conclude your deal with {{host.user_id.name}}</h3>
           <div class="images-booking">
             <img src="{{client.avatar}}" alt="client avatar">
             <img src="{{host.user_id.avatar}}" alt="client avatar">
           </div>
+          <div class="calendars">
+            {{!-- <div id="start_calendar" class="auto-jsCalendar"></div> --}}
+            {{!-- <div id="end_calendar" class="auto-jsCalendar"></div> --}}
+          </div>
           <div class="controls">
+          
+
             <label for="startDate"><i class="fa fa-calendar"></i> First day of hosting</label>
-            <input type="date" id="startDate" name="startDate" value="<?php echo date('Y-m-d'); ?>">
+            {{!-- <input type="date" id="startDate" name="startDate" class="hidden"> --}}
+            <input type="date" id="startDate" name="startDate" >
           </div>      
         <div class="controls">
           <label for="endDate"><i class="fa fa-calendar"></i> Last day of hosting</label>
-          <input type="date" id="endDate" name="endDate" value="<?php echo date('Y-m-d'); ?>" />
-        </div>      
-        <div class="controls">
-          <label for="howManyAnimals">Which cat(s) do you want to be hosted?</label>
-          <input id="howManyAnimals" type="radio" name="howManyAnimals" value="1" min="1" max="4" step="1">
-        </div>      
+          {{!-- <input type="date" id="endDate" name="endDate" class="hidden"/> --}}
+          <input type="date" id="endDate" name="endDate" />
+        </div>
+        <div>
+      </div>    
   </div> 
 </div>   
- <div class="center-button"><button type="submit" value="Submit" class="button-search-host" id="find-hosts-button">Validate this booking</button></div>
+ <div class="center-button"><button type="submit" value="Submit" id="make-deal-form" class="booking-confirmed">Validate this booking</button></div>
       </div>  
   </div>
 </form>

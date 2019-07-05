@@ -77,6 +77,7 @@ app.use(
 );
 
 function checkloginStatus(req, res, next) {
+	// console.log(req.session.currentUser)
 	res.locals.user = req.session.currentUser ? req.session.currentUser : null;
 	// access this value @ {{user}} or {{user.prop}} in .hbs
 	res.locals.isLoggedIn = Boolean(req.session.currentUser);

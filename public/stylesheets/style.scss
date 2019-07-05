@@ -540,7 +540,7 @@ footer {
 }
 
 .search-inputs {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
 }
  
@@ -625,11 +625,14 @@ h2.heading{
   margin: 20px auto;
 }
 
-#make-deal-form h3{
+#make-deal-form {
+  display: flex;
+  flex-direction: column;    
+  align-content: center;
+  align-items: center;
   width: 70%;
-  margin: 20px auto;
+  margin: 0 auto;
 }
-
 
 #make-deal-form h3{
   color: black;
@@ -639,14 +642,33 @@ h2.heading{
 .images-booking {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 50%;
-  margin: 50 auto;
+  justify-content: center;
 }
 
 .images-booking img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+.booking-confirmed {
+  width: 70%;
+  margin: 10% auto;
+}
+
+.booking-confirmed param {
+  font-size: 1.5rem;
+}
+
+.booking-confirmed button, .center-button button {
+  color: white;
+  background-color: #f38181;
+  font-size: 1.2rem;
+  width: 220px;
+  height: auto;
+  font-family: "Montserrat",sans-serif;
+  border-radius: 6%;
+  padding: 2%;
+  margin: 12% 25% 4% 0%;
 }
 /*                       /BOOKING                          */
