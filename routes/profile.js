@@ -4,7 +4,8 @@ const uploader = require("./../config/cloudinary");
 
 const User = require("../models/User");
 const Cat = require("../models/Cat");
-// const Host = require('../models/Host');
+const Host = require('../models/Host');
+const Booking = require('../models/Booking');
 
 // User Page
 router.use((req, res, next) => {
@@ -135,18 +136,20 @@ router.get("/dashboard/cats", (req, res, next) => {
     });
 });
 
-// Booking Page
-router.use((req, res, next) => {
+//Booking Page
+ router.use((req, res, next) => {
   if (req.session.currentUser) {
     next();
   } else {
     res.redirect("/login");
   }
-});
+}); 
 router.get("/dashboard/bookings", (req, res, next) => {
-  res.render("dashboard/my_bookings");
+  Booking.find({ owner: req.session.currentUser._id }).then(dbRes => {
+    console.log(dbRes);
+    res.render("dashboard/my_bookings", { bookings: dbRes });
+  });
 });
-
 /* 
 	User.findOne({ username }, 'username', (err, user) => {
 		if (user !== null) {

@@ -1,3 +1,18 @@
+<div class="cat-section"></div>
+  <div class="section-title">
+    <h2 class="title-centered">My cats</h2>
+  </div>
+  <div id="profile">
+  <div class="nav-dahsboard">
+    <img src="{{user.avatar}}" alt="user avatar" class="avatar">
+    <ul>
+      <li>Dashboard</li>
+      <li><a href="/dashboard">My infos</a></li>
+      <li><a href="/dashboard/cats">My cats</a></li>
+      <li><a href="/dashboard/bookings">My bookings</a></li>
+    </ul>
+  </div>
+
 <div class="infos">
   <h2>My infos</h2><br>
   <form action="/dashboard/cats/{{cat._id}}" method="POST" id="form-container">

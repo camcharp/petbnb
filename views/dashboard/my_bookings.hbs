@@ -12,4 +12,48 @@
       <li><a href="/dashboard/bookings">My bookings</a></li>
     </ul>
   </div>
+
   <div class="infos">
+    <h2>My bookings</h2><br>
+
+  <div class="infos">
+      <div class="manage-wrapper">
+        <table class="manage-table">
+          <thead>
+            <tr class="table-row">
+              <th class="table-head">Start Date</th>
+              <th class="table-head">End Date</th>
+              <th class="table-head">Name of the cat sitter</th>
+              <th class="table-head">Edit</th>
+              <th class="table-head">Delete</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each bookings}}
+            <tr class="table-row">
+                            <td class="table-division">
+              <div>{{this.host_id}}</div>
+             </td>
+              <td class="table-division">
+                <div>{{this.enDate}}</div>
+              </td>
+              <td class="table-division">
+              <div>{{this.startDate}}</div>
+             </td>
+              <td class="table-division">
+                <a href="/dashboard/bookings/{{this._id}}" booking-id="{{this._id}}"><i class="fas fa-edit"></i></a>
+              </td>
+              <td class="table-division">
+                <a href="/dashboard/delete/cats/{{this._id}}"><i class="fas fa-trash-alt"></i></a>
+              </td>
+              {{/each }}
+            </tr>
+            {{#unless bookings}}
+            <tr>
+              <td colspan="6">You have no bookings yet. <a href="/hosts">Start now!</a></td>
+            </tr>
+            {{/unless}}
+          </tbody>
+        </table>
+      </div>
