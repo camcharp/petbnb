@@ -85,8 +85,6 @@ function checkloginStatus(req, res, next) {
 }
 app.use(checkloginStatus);
 
-const index = require('./routes/index');
-app.use('/', index);
 
 // Routers
 const basePageRouter = require('./routes/index');
@@ -97,5 +95,8 @@ app.use(authRouter);
 
 const profileRouter = require('./routes/profile');
 app.use(profileRouter);
+
+const bookingRouter = require('./routes/booking');
+app.use(bookingRouter);
 
 module.exports = app;
