@@ -5,7 +5,7 @@ const uploader = require("./../config/cloudinary");
 const User = require("../models/User");
 const Cat = require("../models/Cat");
 const Host = require('../models/Host');
-const Booking = require('../models/Booking');
+const Booking = require('../models/booking');
 
 // User Page
 router.use((req, res, next) => {
