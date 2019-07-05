@@ -10,10 +10,11 @@ const Cat = require("../models/Cat");
 router.use((req, res, next) => {
   if (req.session.currentUser) {
     next();
-  } else {
+  } else {    
     res.redirect("/login");
   }
 });
+
 router.get("/dashboard", (req, res, next) => {
   User.findById(req.session.currentUser._id)
     .then(user => {

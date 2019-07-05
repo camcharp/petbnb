@@ -32,12 +32,15 @@ router.get("/hosts/api", (req,res) => {
 
 // Profile Page
 router.get("/profile/:id", (req, res) => {
-  console.log(req.params.id)
-  User.findById(req.params.id)
+  
+  Host.findById(req.params.id).populate("user_id")
   .then((profile) => {
+    console.log(profile);
+    
 		res.render('dashboard/user_profile', { profile });
 	})
 	.catch((err) => {
+    console.log("err", err)
 		res.render('dashboard/user_profile', { err: 'an error occured' });
 	});
 });

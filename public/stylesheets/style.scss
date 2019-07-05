@@ -624,4 +624,29 @@ h2.heading{
   width: 70%;
   margin: 20px auto;
 }
+
+#make-deal-form h3{
+  width: 70%;
+  margin: 20px auto;
+}
+
+
+#make-deal-form h3{
+  color: black;
+  font-size: 2rem;
+}
+
+.images-booking {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  margin: 50 auto;
+}
+
+.images-booking img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 /*                       /BOOKING                          */
