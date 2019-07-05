@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Host = require("./../models/Host");
 const User = require("./../models/User");
-const Booking = require("./../models/Booking");
+const Booking = require("../models/booking");
 
 router.get("/booking", (req, res) => {
   // console.log(req.query.client);
