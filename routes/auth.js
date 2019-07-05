@@ -72,7 +72,6 @@ router.post("/signup", uploader.single("avatar"), (req, res) => {
 
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(password, salt);
-
   newUser.password = hashPass;
 
   User.create(newUser)
@@ -96,8 +95,6 @@ router.post("/signup", uploader.single("avatar"), (req, res) => {
         zipcode,
         city,
       });
-      //}
-
       res.redirect("/dashboard");
     })
     .catch(err => {

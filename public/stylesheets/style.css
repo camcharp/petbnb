@@ -199,7 +199,11 @@ th, td {
   flex-direction: column;
   align-items: flex-start;
   color: white;
-  padding: 5% 0 0 5%; }
+  padding: 5% 0 0 8%; }
+
+.large-image h1 {
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem; }
 
 #intro-buttons {
   display: flex;
@@ -215,7 +219,7 @@ th, td {
   font-family: "Montserrat",sans-serif;
   border-radius: 6%;
   padding: 4.5%;
-  margin: 8% 25% 4% 30%; }
+  margin: 12% 25% 4% 0%; }
 
 #threeitems {
   display: flex;
@@ -224,7 +228,7 @@ th, td {
   padding: 2%; }
 
 .item {
-  padding: 0 8%;
+  padding: 3% 8%;
   display: flex;
   flex-direction: column;
   align-items: center;

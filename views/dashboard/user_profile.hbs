@@ -3,7 +3,7 @@
     <div class="nav-dahsboard">
       <button class="validate"><i class="fas fa-arrow-circle-left"></i> <a href="/hosts">Go back to your research</a> </button>
       <br><br>
-      <img src="{{user.avatar}}" alt="user avatar" class="avatar">
+      <img src="{{profile.user_id.avatar}}" alt="user avatar" class="avatar">
       <ul>
         <li><a href="/reviews">3 reviews</a></li>
         <li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></li>
@@ -12,7 +12,7 @@
     </div>
     <div class="infos">
       <br><br>
-      <h2>{{user.name}} {{user.lastname}}</h2><br>
+      <h2>{{profile.user_id.name}} {{profile.user_id.lastname}}</h2><br>
       <div class="host-infos">
         <div class="property-container">
           <div class="property-icon">
@@ -40,11 +40,9 @@
         </div>
       </div>
       <br>
-      <p>{{host.description}}Hi everyone! I used to volunteer in a shelter, now I have a nice house and want to help cat owners taking care of their pets! :) </p>
+      <p>{{profile.description}}Hi everyone! I used to volunteer in a shelter, now I have a nice house and want to help cat owners taking care of their pets! :) </p>
       <button class="validate"><a href="">Send a message</a></button>
       <button class="validate"><a href="">Choose this cat sitter</a></button>
-
-{{!--       <button class="validate">Supprimer mon compte</button> --}}
     </form> 
   </div>
 </div>

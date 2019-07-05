@@ -87,40 +87,6 @@ router.post("/dashboard/cats", uploader.single("catavatar"), (req, res) => {
     });
 });
 
-// Delete Cat
-router.get("/dashboard/delete/cats/:id", function(req, res) {
-  Cat.findByIdAndDelete(req.params.id)
-    .then(user => {
-      console.log(user);
-      res.redirect("/dashboard/cats");
-    })
-    .catch(err => {
-      res.render("/dashboard/cats", { err: "an error occured" });
-    });
-});
-
-router.get("/dashboard/cats", (req, res, next) => {
-  Cat.findById(req.session.currentUser._id)
-    .then(cats => {
-      res.render("/dashboard/my_cats", { cats });
-    })
-    .catch(err => {
-      res.render("/dashboard/my_cats", { err: "an error occured" });
-    });
-});
-
-// Booking Page
-router.use((req, res, next) => {
-  if (req.session.currentUser) {
-    next();
-  } else {
-    res.redirect("/login");
-  }
-});
-router.get("/dashboard/bookings", (req, res, next) => {
-  res.render("dashboard/my_bookings");
-});
-
 // Get to Cat Page
 router.get("/dashboard/cats/:id", (req, res, next) => {
   const catId = req.params.id;
@@ -143,6 +109,41 @@ router.post("/dashboard/cats/:id", (req, res, next) => {
     .catch(error => {
       console.log(error);
     });
+});
+
+// Delete Cat
+router.get("/dashboard/delete/cats/:id", function(req, res) {
+  Cat.findByIdAndDelete(req.params.id)
+    .then(user => {
+      console.log(user);
+      res.redirect("/dashboard/cats");
+    })
+    .catch(err => {
+      res.render("/dashboard/cats", { err: "an error occured" });
+    });
+});
+
+// Got to Cats Page
+router.get("/dashboard/cats", (req, res, next) => {
+  Cat.findById(req.session.currentUser._id)
+    .then(cats => {
+      res.render("/dashboard/my_cats", { cats });
+    })
+    .catch(err => {
+      res.render("/dashboard/my_cats", { err: "an error occured" });
+    });
+});
+
+// Booking Page
+router.use((req, res, next) => {
+  if (req.session.currentUser) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/dashboard/bookings", (req, res, next) => {
+  res.render("dashboard/my_bookings");
 });
 
 /* 
