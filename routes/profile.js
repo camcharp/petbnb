@@ -145,11 +145,12 @@ router.get("/dashboard/cats", (req, res, next) => {
   }
 }); 
 router.get("/dashboard/bookings", (req, res, next) => {
-  Booking.find({ owner: req.session.currentUser._id }).then(dbRes => {
-    console.log(dbRes);
-    res.render("dashboard/my_bookings", { bookings: dbRes });
+  Booking.find({ user_id: req.session.currentUser._id}).then(dbRes => {
+    console.log("hello");
+    res.render("dashboard/my_bookings", { dbRes });
   });
 });
+
 /* 
 	User.findOne({ username }, 'username', (err, user) => {
 		if (user !== null) {
